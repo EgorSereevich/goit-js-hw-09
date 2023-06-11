@@ -2,30 +2,17 @@ import Notiflix, { Loading } from 'notiflix';
 import 'flatpickr/dist/flatpickr.min.css';
 const refs = {
   formEl: document.querySelector('.form'),
-  delayEl: document.querySelector('input[name="delay"]'),
-  stepEl: document.querySelector('input[name="step"]'),
-  amountEl: document.querySelector('input[name="amount"]'),
+  delayEl: document.querySelector(`form[name="daley]`),
+  stepEl: document.querySelector(`form[name="step"]`),
+  amountEl: document.querySelector(`form[name="amount"]`),
 };
 
-function createPromise(position, delay) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const shouldResolve = Math.random() > 0.3;
-      if (shouldResolve) {
-        resolve({ position, delay });
-      } else {
-        reject({ position, delay });
-      }
-    }, delay);
-  });
-}
 refs.formEl.addEventListener('submit', onSubmit);
 function onSubmit(evt) {
   evt.preventDefault();
   let delay = Number(refs.delayEl.value);
   let step = Number(refs.stepEl.value);
   let amount = Number(refs.amountEl.value);
-
   let position = 0;
   delay = delay - step;
   for (let i = 0; i < amount; i += 1) {
@@ -42,6 +29,19 @@ function onSubmit(evt) {
           `❌ Rejected promise ${position} in ${delay}ms`
         );
       });
+    form.rest();
   }
-  refs.formEl.reset();
+}
+
+function createPromise(position, delay) {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      const shouldResolve = Math.random() > 0.3;
+      if (shouldResolve) {
+        res({ position, dalay });
+      } else {
+        rej({ position, dalay });
+      }
+    }, dalay);
+  });
 }
