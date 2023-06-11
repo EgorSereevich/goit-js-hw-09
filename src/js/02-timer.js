@@ -14,7 +14,6 @@ const refs = {
 };
 refs.startButtonEl.setAttribute('disabled', 'disabled');
 refs.timeAllEl.style.display = 'flex';
-console.log(refs.timeEl);
 
 refs.timeEl[0].style.flexDirection = 'column';
 refs.timeEl[0].style.display = 'flex';
