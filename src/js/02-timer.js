@@ -1,28 +1,11 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import Notiflix from 'notiflix';
+import { refs } from './timer-refs';
 
-const refs = {
-  inputEl: document.querySelector('#datetime-picker'),
-  startButtonEl: document.querySelector('button[data-start]'),
-  daysEl: document.querySelector('span[data-days]'),
-  hoursEl: document.querySelector('span[data-hours]'),
-  minutesEl: document.querySelector('span[data-minutes]'),
-  secondsEl: document.querySelector('span[data-seconds]'),
-  timeAllEl: document.querySelector('.timer'),
-  timeEl: document.querySelectorAll('.field'),
-};
 refs.startButtonEl.setAttribute('disabled', 'disabled');
 refs.timeAllEl.style.display = 'flex';
 
-refs.timeEl[0].style.flexDirection = 'column';
-refs.timeEl[0].style.display = 'flex';
-refs.timeEl[1].style.flexDirection = 'column';
-refs.timeEl[1].style.display = 'flex';
-refs.timeEl[2].style.flexDirection = 'column';
-refs.timeEl[2].style.display = 'flex';
-refs.timeEl[3].style.flexDirection = 'column';
-refs.timeEl[3].style.display = 'flex';
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -39,7 +22,7 @@ const options = {
   },
 };
 const fp = flatpickr(refs.inputEl, options);
-
+let timerId = null;
 refs.startButtonEl.addEventListener('click', () => {
   timerId = setInterval(() => {
     const date = new Date();

@@ -16,3 +16,14 @@ img {
   display: block;
   max-width: 100%;
 }
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.timer {
+  display: flex;
+}
+.value {
+  padding-left: 20px;
+}

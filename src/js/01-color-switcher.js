@@ -21,7 +21,7 @@ refs.startButtonEl.addEventListener('click', () => {
   }, 1000);
 });
 refs.stopButtonEl.addEventListener('click', () => {
+  refs.stopButtonEl.setAttribute('disabled', 'disabled');
   clearInterval(timerId);
   refs.startButtonEl.removeAttribute('disabled');
-  refs.stopButtonEl.setAttribute('disabled', 'disabled');
 });
